@@ -4,7 +4,7 @@ import Editor from '@monaco-editor/react';
 import io from 'socket.io-client';
 import styles from './loader.module.css';
 
-const socket = io('http://localhost:4000', { withCredentials: true }); // Specify the server URL
+const socket = io('http://localhost:4000'); 
 
 const MonacoComponent = ({ code, setCode }) => {
   const [editorLoaded, setEditorLoaded] = useState(false);
@@ -18,7 +18,7 @@ const MonacoComponent = ({ code, setCode }) => {
 
   const handleCodeChange = (newCode) => {
     setCode(newCode);
-    socket.emit('updateDocument', newCode); // Emit the 'updateDocument' event to the server
+    socket.emit('updateDocument', newCode); 
   };
 
   const editorStyle = {
@@ -35,13 +35,13 @@ const MonacoComponent = ({ code, setCode }) => {
       console.log('Disconnected from Socket.IO server');
     });
 
-    // Listen for document updates from the server
+
     socket.on('documentUpdated', (updatedCode) => {
       setCode(updatedCode);
     });
 
     return () => {
-      socket.disconnect(); // Clean up the socket connection when the component unmounts
+      socket.disconnect(); 
     };
   }, []);
 
