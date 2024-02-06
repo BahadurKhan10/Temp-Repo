@@ -12,10 +12,11 @@ const PORT = process.env.PORT || 4000;
 
 // CORS
 const corsOptions = {
-  origin: 'http://localhost:3000',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true,
+  origin: '*',
+  methods: ['GET','HEAD','PUT','PATCH','POST','DELETE', 'OPTIONS'],
+  allowedHeaders: '*',
 };
+
 
 app.use(cors(corsOptions));
 
