@@ -1,0 +1,32 @@
+/* loader.module.css */
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* Set the container height to 100% of the viewport height */
+  }
+
+
+.loader {
+    color: #fff;
+    font-family: Consolas, Menlo, Monaco, monospace;
+    font-weight: bold;
+    font-size: 20vh;
+    opacity: 0.8;
+    align-items: center;
+  }
+  
+  /* Add a unique class or ID to the span selector */
+  .loaderSpan {
+    display: inline-block;
+    animation: pulse 0.4s alternate infinite ease-in-out;
+  }
+  
+  @keyframes pulse {
+    to {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+  }
+  
